@@ -1,0 +1,34 @@
+{
+    "extends": "../../tsconfig.base",
+    "compilerOptions": {
+        "baseUrl": "./",
+        "allowJs": true,
+        "noImplicitThis": true,
+        "types": [
+            "vite/client"
+        ],
+        "paths": {
+            "@/*": [
+                "src/*"
+            ]
+        },
+    },
+    "include": [
+        "vite.config.ts",
+        "src/**/*.ts",
+        "src/**/*.d.ts",
+        "src/**/*.tsx",
+        "src/**/*.vue",
+        "_build/**/*.ts",
+    ],
+    "exclude": [
+        "node_modules",
+        "dist",
+        "**/*.js",
+    ],
+    "references": [
+        {
+            "path": "./tsconfig.node.json"
+        }
+    ]
+}
