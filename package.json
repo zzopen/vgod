@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm run -C packages/vgod-admin dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "pnpm": ">= 8.6.2"
+  },
+  "packageManager": "pnpm@8.6.2"
+}

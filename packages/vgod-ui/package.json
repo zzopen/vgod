@@ -1,0 +1,16 @@
+{
+ "name": "@vgod/ui",
+ "version": "1.0.0",
+ "private": true,
+ "description": "publish npm version",
+ "main": "index.ts",
+ "module": "index.ts",
+ "scripts": {},
+ "keywords": [],
+ "author": "",
+ "license": "ISC",
+ "dependencies": {
+  "@vgod/components": "workspace:*",
+  "vue": "^3.3.4"
+ }
+}

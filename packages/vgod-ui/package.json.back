@@ -1,0 +1,45 @@
+{
+  "name": "vgod",
+  "version": "1.0.0",
+  "description": "A Component Library for Vue 3",
+  "homepage": "https://github.com/zzopen/vgod/",
+  "bugs": {
+    "url": "https://github.com/zzopen/vgod/issues"
+  },
+  "keywords": [
+    "vgod",
+    "component library",
+    "ui framework",
+    "ui",
+    "vue"
+  ],
+  "main": "dist/index.umd.js",
+  "module": "dist/index.es.js",
+  "unpkg": "dist/index.umd.js",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "index.ts",
+      "require": "./dist/index.umd.js",
+      "types": "./dist/types/vangle/index.d.ts"
+    },
+    "./*": "./*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zzopen/vgod.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "style": "dist/style.css",
+  "scripts": {},
+  "author": "zzopen",
+  "peerDependencies": {
+    "vue": "^3.2.0"
+  },
+  "typings": "dist/types/vangle/index.d.ts",
+  "license": "MIT"
+}
