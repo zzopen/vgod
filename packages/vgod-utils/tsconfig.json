@@ -2,6 +2,7 @@
     "compilerOptions": {
         "baseUrl": "./",
         "outDir": "dist",
+        "rootDir": ".",
         "target": "es2018",
         "module": "ESNext",
         "esModuleInterop": true,
@@ -17,19 +18,12 @@
         "noFallthroughCasesInSwitch": true,
         "removeComments": true,
         "types": [],
-        "paths": {
-            "@/*": [
-                "src/*"
-            ]
-        },
         "jsx": "preserve",
         "skipLibCheck": true
     },
     "include": [
         "src/**/*.ts",
-        "src/**/*.d.ts",
-        "src/**/*.tsx",
-        "src/**/*.vue",
+        "src/**/*.d.ts"
     ],
     "exclude": [
         "node_modules",

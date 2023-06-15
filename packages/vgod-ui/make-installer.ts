@@ -1,6 +1,6 @@
 import type { App, Plugin } from "vue";
 
-const INSTALLED_KEY = Symbol("INSTALLED_KEY");
+const INSTALLED_KEY = Symbol("VGOD_UI_INSTALLED_KEY");
 
 export function makeInstaller(components: Plugin[] = []) {
   const install = (app: App) => {
@@ -8,7 +8,6 @@ export function makeInstaller(components: Plugin[] = []) {
     (app as any)[INSTALLED_KEY] = true;
     components.forEach((comp) => {
         app.use(comp)
-        console.log(comp)
     });
   };
 

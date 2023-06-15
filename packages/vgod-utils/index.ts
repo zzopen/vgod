@@ -1,2 +1,2 @@
-export * from './vue'
-export * from './components'
+export * from './src/vue'
+export * from './src/global'

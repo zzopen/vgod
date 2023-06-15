@@ -1,10 +1,11 @@
-import type { PropType } from 'vue'
+import type { ExtractPropTypes } from 'vue'
 
-export interface LoginProps {
-    username_placeholder?: string
-    password_placeholder?: string
-    submit?: () => {}
-}
+export const loginProps = () => ({
+    usernamePlaceholder:{ type: String, default: '' },
+    passwordPlaceholder:{ type: String, default: '' }
+})
+
+export type LoginProps = Partial<ExtractPropTypes<ReturnType<typeof loginProps>>>;
 
 export interface FormState {
     username: string

@@ -2,6 +2,7 @@
     "compilerOptions": {
         "baseUrl": "./",
         "outDir": "dist",
+        "rootDir": ".",
         "target": "es2018",
         "module": "ESNext",
         "esModuleInterop": true,
@@ -34,5 +35,10 @@
     "exclude": [
         "node_modules",
         "dist"
+    ],
+    "references": [
+        {
+            "path": "./tsconfig.node.json"
+        }
     ]
 }

@@ -1,25 +1,27 @@
 <script setup lang="ts">
-import {ref,unref,reactive, computed} from 'vue'
+import {ref, unref, reactive, computed} from 'vue'
+import { createNamespace } from '@vgod/utils'
 import { message, type FormInstance } from 'ant-design-vue'
 import { type Rule } from 'ant-design-vue/es/form'
-import { LoginProps,FormState } from './login'
-import { createNamespace } from '@vgod/utils'
+import { loginProps, FormState } from './login'
 
 defineOptions({
     name: 'VGLogin'
 })
 
-withDefaults(defineProps<LoginProps>(), {
-    username_placeholder: 'username',
-    password_placeholder: 'password'
-})
+defineProps(loginProps())
+const emit = defineEmits(['login'])
 
-const { n } = createNamespace('login')
+const { createBEM } = createNamespace('login')
 const getClass = computed(() => {
-    return [n()]
+    return [createBEM()]
 })
 
-const { formData, formRef, rules, resetForm, onLogin } = useLogin()
+const { formData, formRef, rules, resetForm, onSubmit } = useLogin()
+
+defineExpose({
+    resetForm
+})
 
 function useLogin() {
     const formRef = ref<FormInstance>()
@@ -62,17 +64,16 @@ function useLogin() {
     }
 
 
-    const onLogin = async () => {
+    const onSubmit = async () => {
         await _validateForm()
-        //await userStore.login(unref(formData))
-        message.success('登录成功')
+        emit('login', unref(formData))
     }
 
     return {
         formData,
         rules,
         formRef,
-        onLogin,
+        onSubmit,
         resetForm,
     }
 }
@@ -90,14 +91,14 @@ function useLogin() {
                         <a-form @submit.prevent name="loginForm" ref="formRef" :model="formData" :rules="rules">
                             <a-form-item name="username">
                                 <a-input v-model:value="formData.username" size="large" autocomplete="off"
-                                         :placeholder="username_placeholder" />
+                                         :placeholder="usernamePlaceholder" />
                             </a-form-item>
                             <a-form-item name="password">
                                 <a-input-password v-model:value="formData.password" size="large" autocomplete="off"
-                                                  :placeholder="password_placeholder" />
+                                                  :placeholder="passwordPlaceholder" />
                             </a-form-item>
                             <a-form-item>
-                                <a-button type="primary" block shape="round" @click="onLogin">登录</a-button>
+                                <a-button type="primary" block shape="round" @click="onSubmit">登录</a-button>
                             </a-form-item>
                             <a-form-item>
                                 <a-button block shape="round" @click="resetForm">重置</a-button>
